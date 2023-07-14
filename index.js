@@ -1,19 +1,16 @@
 const express = require('express');
+const app = express();
 const port = 4000;
 
+//set our view engine
+app.set('view engine' , 'ejs' );
+app.set('views' , './views');
 
 
-const app= express();
 //use express route below 
 app.use('/' , require('./routs/index.js'));
 
 
-app.get('/', function(req, res) {
-    res.send('Hello, world!');
-  }); 
-
-
-  
 app.listen(port , function(err){
     if(err){
         console.log('error in connecting to data base');

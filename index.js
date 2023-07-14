@@ -4,7 +4,8 @@ const port = 4000;
 
 
 const app= express();
-
+//use express route below 
+app.use('/' , require('./routs/index.js'));
 
 
 app.get('/', function(req, res) {

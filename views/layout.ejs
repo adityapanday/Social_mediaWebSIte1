@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title> <%= title%> </title>
+    <link rel="stylesheet" href="./css/layout.css">
+    
+    <!-- app.set('layout extractStyle ' ,true );
+    app.set('layout extractScripts ' ,true );       in dono fiel ki help sa hum yahi pr link kar sakte h css ko tomake 
+     website run easily -->
+
+     <%- style %>
+
+
+</head>
+<body class="body">
+    <%- include('_header');%>
+    
+    <!-- // its a pre defined tag it just fetches the content and tmmm
+    // exclude kar do  <%- include('_header');%> ya vala part bcoz ya isss page par hai 
+    // jarurat nahi hai innsabki  -->
+
+     <%-body%>
+
+
+
+    <%- include('_footer');%>
+    <%-script %>
+</body>
+</html>

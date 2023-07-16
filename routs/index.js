@@ -8,7 +8,7 @@ console.log('router is connect to server succesfully to srever');
 
 router.get('/' , homecontroller.home);
 router.use('/user' , require('./user.js') );
-router.use('./post' ,require('./post.js') );
+
 
 
 module.exports = router;

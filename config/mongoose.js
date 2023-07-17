@@ -7,6 +7,6 @@ db.on('error' , console.error.bind(console  , 'tere is a error in connecting to 
 
 db.once('open' , ()=>{
     console.log('connnected to data base');
-   });
+});
    
 module.exports = db ;

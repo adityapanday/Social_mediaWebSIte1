@@ -4,8 +4,12 @@ const app = express();
 const port = 4000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const bodyParser = require('body-parser');
 
-app.use(express.urlencoded());
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.urlencoded());
 
 app.use(cookieParser());
 

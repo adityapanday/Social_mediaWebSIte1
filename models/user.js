@@ -4,9 +4,9 @@ const userSchema = new mongoose.Schema({
     email:{
         type:String,
         required: true ,
-        uniqure : true
+        unique : true
     },
-    pasward:{
+    password:{
         type : String,
         required : true,
 

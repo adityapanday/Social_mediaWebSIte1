@@ -1,0 +1,27 @@
+.foot{
+    background-color: aqua;
+    margin-top: 30%;
+}
+
+
+
+
+/* header ka lia */
+
+#header{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+#header > ul {
+    margin-left: 20px;
+}
+#header > ul> li{
+    font-size: 25px;
+    list-style: none;
+    background-color: rgb(131, 128, 128);
+    color: white;
+    border: 1px solid rgb(196, 209, 111);
+    margin-top: 4px;
+    /* opacity: 50%; */
+}

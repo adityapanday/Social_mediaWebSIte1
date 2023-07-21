@@ -1,11 +1,10 @@
-<!-- <html>
-<head>
-    <title> <%= title%> </title>
-</head>
-<body>
-    <%- include('_header');%> -->
+
    
-    <h1> the title is <%= title%>  </h1>
-    <!-- <%- include('_footer');%>
-</body>
-</html> -->
+    <h1> Hello  <%= user.name %> </h1> <h3> Welcome To codial social media site  </h3>
+  <section id="feed-posts">
+      <h4>posts</h4>
+        <form action="/posts/create" id="new-post-form " method="POST">
+           <textarea name="content" cols="30" rows="3" placeholder="Type here..."> </textarea>
+            <input type="submit" value="Posts">
+        </form>
+  </section>

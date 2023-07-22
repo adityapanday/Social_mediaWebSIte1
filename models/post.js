@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
+const User = require('./user');
 const postSchema = new mongoose.Schema({
         Content:{
             type:String,
             required:true
         },
         user :{
-            type:mongoose.Schema.Types.ObjectId
+            type:mongoose.Schema.Types.ObjectId,
+            ref : User
         }
     },{timestamps :true
 });

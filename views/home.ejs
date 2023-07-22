@@ -1,10 +1,25 @@
 
    
-    <h1> Hello  <%= user.name %> </h1> <h3> Welcome To codial social media site  </h3>
+
   <section id="feed-posts">
       <h4>posts</h4>
         <form action="/posts/create" id="new-post-form " method="POST">
            <textarea name="content" cols="30" rows="3" placeholder="Type here..."> </textarea>
-            <input type="submit" value="Posts">
+            <input type="submit" value="Post">
         </form>
-  </section>
+        <div id="posts-list-container">
+          <ul>
+              <% for(post of posts){ %>
+                  
+              <li>
+                 
+                      <%= post.Content %>
+                       <input type="button" value="Remove">
+                      <small>  <%=post.user%>  </small>
+                     
+              </li>
+                  
+              <%} %>
+          </ul>
+      </div>
+  </section>  

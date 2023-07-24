@@ -7,7 +7,7 @@ module.exports.create = async (req, res) => {
     
     try {
         const posts = await Post.create({
-            Content : req.body.content,
+            Content : req.body.content, 
             user: req.user._id
             
         });

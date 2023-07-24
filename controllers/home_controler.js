@@ -1,31 +1,11 @@
+const Comment = require('../models/comment');
 const Post = require('../models/post');
 const  User  = require('../models/user');
 
+
+
 // const mongoose = require('mongoose');
 
-
-
-
-// module.exports.home = async (req, res) => {
-//     // console.log(req.cookies);
-//     // res.cookie('user_id', 25);
-
-    
-//         const posts = await Post.find({}).populate('user').exec(async(err ,post)=>{
-//             try{
-                    
-//              return res.render('home', {
-//             title: 'Home',
-//             posts: posts // Use the lowercase 'posts' variable here, which contains the fetched data
-//                });
-//             }
-//         catch (err) {
-//             console.error('Error finding posts:', err);
-//             return res.render('error', { error: 'Error fetching posts' });
-//         }
-//     });
-  
-// };
 module.exports.home = async (req, res) => {
     
     try {
@@ -33,7 +13,8 @@ module.exports.home = async (req, res) => {
           
         return res.render('home', {
             title: 'Home',
-            posts: posts // Use the lowercase 'posts' variable here, which contains the fetched data
+            posts: posts, // Use the lowercase 'posts' variable here, which contains the fetched data
+            comments :Comment
         });
         // return res.send("Working");
     } catch (err) {

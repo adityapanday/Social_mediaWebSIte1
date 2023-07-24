@@ -7,6 +7,7 @@
            <textarea name="content" cols="30" rows="3" placeholder="Type here..."> </textarea>
             <input type="submit" value="Post">
         </form>
+      
         <div id="posts-list-container">
           <ul>
               <% for(post of posts){ %>
@@ -16,7 +17,13 @@
                       <%= post.Content %>
                        <input type="button" value="Remove">
                    <small> <%-post.user.name%></small>
-                     
+                   <div class="comment-post">
+                    <form action="/comments/create" method="post">
+                        <input type="text" name="comments" placeholder="comments"> 
+                        <input type="submit" placeholder="comment" value="comments">   
+                       </form> 
+                   </div>
+                  
                      
               </li>
                   

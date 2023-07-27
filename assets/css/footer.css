@@ -1,33 +1,58 @@
-.foot{
-    background-color: aqua;
-    margin-top: 30%;
-}
+.foot {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .foot h3 {
+    margin: 5px;
+  }
+  
+  .foot h3:first-child {
+    margin-top: 0;
+  }
 
 
 
 
 /* header ka lia */
 
-#header{
-    background-color: aqua;
-    display: flex;
-    justify-content: space-between;
-}
-#header > ul {
-    margin-left: 20px;
-}
-#header > ul> li{
-    font-size: 25px;
-    list-style: none;
-    background-color: rgb(131, 128, 128);
-    color: white;
-    border: 1px solid rgb(196, 209, 111);
-    margin-top: 4px;
-     /* opacity: 50%;  */
-}  
- 
+#header {
+    background-color: #95b9eb;
+    padding: 10px;
+    overflow: hidden; /* To clear the float */
+  }
 
+  #header h1 {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+  }
 
+  #header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 
+  #header li {
+    display: inline-block;
+  }
 
+  #header li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px;
+  }
+
+  #header li a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* Position Sign In and Sign Up on the right side */
+  #header li.right {
+    float: right;
+  }
   

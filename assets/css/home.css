@@ -1,3 +1,10 @@
 .body{
     background-color: red;
 }
+.feed-posts > #posts-list-container{
+    background-color: aqua;
+    
+    margin-left: 346px;
+    max-width: 541px;
+    padding-left: 158px;
+}

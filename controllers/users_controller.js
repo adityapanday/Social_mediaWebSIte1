@@ -12,11 +12,6 @@ module.exports.profile = function(req, res){
 
 // render the sign up page
 module.exports.signUp = function(req, res){
-    // if (req.isAuthenticated()){
-    //     return res.redirect('/user/profile');
-    // }
-
-
     return res.render('user_sign_up', {
         title: "Codeial | Sign Up"
     })

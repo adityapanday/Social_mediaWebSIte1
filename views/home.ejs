@@ -1,49 +1,117 @@
 
+
+ 
+  <style>
    
 
+    #feed-posts {
+      margin-left: 300px;
+      margin-right:300px ;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+   
+    #new-post-form {
+      margin-bottom: 10px;
+    }
+
+    #posts-list-container {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+  
+    .comment-post form {
+      display: flex;
+      margin-top: 5px;
+    }
+
+    .comment-post input[type="text"] {
+      flex: 1;
+      padding: 5px;
+    }
+
+    .comment-post input[type="submit"] {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    
+    .post-comments-list {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .post-comments-list p {
+      margin: 5px 0;
+    }
+
+     
+    li input[type="button"] {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    
+    small {
+      color: #555;
+    }
+  </style>
+
   <section id="feed-posts">
-      <h4>posts</h4>
-        <form action="/posts/create" id="new-post-form " method="POST">
-           <textarea name="content" cols="30" rows="3" placeholder="Type here..."> </textarea>
-            <input type="submit" value="Post">
-        </form>
-      
-        <div id="posts-list-container">
-          <ul>
-              <% for(post of posts){ %>
-                  
-              <li>
-                 
-                      <%= post.Content %>
-                       <input type="button" value="Remove">
-                   <small> <%-post.user.name%></small>
+    <div id="content_post">
+      <h4>Posts</h4>
+      <form action="/posts/create" id="new-post-form" method="POST">
+        <textarea name="content" cols="30" rows="3" placeholder="Type here..."></textarea>
+        <input type="submit" value="Post">
+      </form>
+    </div>
 
+    <div id="posts-list-container">
+      <ul>
+        <% for(post of posts) { %>
+        <li>
+          <%= post.Content %>
+          
+          <small><%-post.user.name%></small>
+  <small><a href="/posts/destroy/<%=post.id%>"> <input type="button "value="Delete"> </a> </small>     
+           <div class="comment-post">
+            <% if (locals.user) { %>
+            <form action="/comments/create" method="post">
+              <input type="text" name="comments" placeholder="comments">
+              <input type="hidden" name="post" value="<%= post._id %>">
+              <input type="submit" value="Comment">
+            </form>
+            <% } %>
+            <div class="post-comments-list">
+              <ul id="posts-comments <%=post._id%>">
+                <% for(comments of post.comments) { %>
+                <p>
+                  <%=comments.comments%>
+                </p>
+                <small><%- comments.user.name %></small>
+                <% } %>
+              </ul>
+            </div>
+          </div>
 
-                   <div class="comment-post">
-                    <% if (locals.user) {%>
-                    <form action="/comments/create" method="post">
-                        <input type="text" name="comments" placeholder="comments"> 
-                        <input type="hidden" name="post" value="<%= post._id %>" >
-                        <input type="submit" placeholder="comment" value="comments">   
-                       </form> 
-                       <%}%>
-                       <div class="post-comments-list">
-                        <ul id="posts-comments <%=post._id%>">
-                           <% for(comments of post.comments) {%>
-                            
-                            <p>
-                                <%=comments.comments%>
-                            </p>
-                            <small><%-comments.user.name%></small>
-                            <%}%>
-                        </ul>
-                       </div>
-                   </div>
-                  
-                     
-              </li>
-                  
-              <%} %>
-          </ul>
-      </div>
-  </section>  
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </section>
+

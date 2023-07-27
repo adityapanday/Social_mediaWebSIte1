@@ -1,29 +1,7 @@
-
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-
 const  User  = require('../models/user');
 
-// module.exports.create = async(req, res)=>{
-//    const post = await Post.findById(req.body.post);
-//     //   res.send('post mila kya ');
-//     // res.send('comment ' , Comment.content);
-//         if (post){
-//             Comment.create({
-//                 comments: req.body.comments,
-//                 user: req.user._id,
-//                 post: req.body.post
-                
-//             }, function(err, comment){
-//                 // handle error
-
-//                 post.comments.push(comment);
-//                 post.save();
-
-//                 res.redirect('/');
-//             });
-//         };
-// };
 
 
 module.exports.create = async(req, res) => {

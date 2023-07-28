@@ -88,7 +88,9 @@
           <%= post.Content %>
           
           <small><%-post.user.name%></small>
-  <small><a href="/posts/destroy/<%=post.id%>"> <input type="button "value="Delete"> </a> </small>     
+          <% if (locals.user && locals.user.id == post.user.id){ %>
+        <small><a href="/posts/destroy/<%=post.id%>"> <input type="button "value="Delete"> </a> </small>     
+        <%}%>
            <div class="comment-post">
             <% if (locals.user) { %>
             <form action="/comments/create" method="post">
@@ -103,7 +105,10 @@
                 <p>
                   <%=comments.comments%>
                 </p>
-                <small><%- comments.user.name %></small>
+                <% if (locals.user && locals.user.id == comments.user.id){ %>
+                  <small><a href="/comments/destroy/<%=comments.id%>"> <input type="button "value="Delete"> </a> </small>     
+                  <%}%>
+                <small><%- comments.user._id %></small>
                 <% } %>
               </ul>
             </div>

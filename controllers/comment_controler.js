@@ -23,47 +23,25 @@ module.exports.create = async(req, res) => {
       return ;
     }
   };
-// module.exports.create = async(req , res)=>{
-//     try {
-//         const posts = await Comment.create({
-//             comments : req.body.comments,
-//             user: req.user._id,
-//             posts :req.body.post
-            
-//         });   
 
-//         res.redirect('back');
-//     } catch (err) {
-//         console.log('Error in storing comment:', err);
-//         return ;
-//     }
-// }
+  module.exports.destroy = async(req , res )=>{
+    try {
 
+    
+    const comment = Comment.findById(req.param.id).exec();
 
-
-
-
-
-// module.exports.create = async (req, res) => {
-//     try {
-//       const post = await Post.findById(req.body.post).populate(post);
-      
-//       if (post) {
-//         const comment = await Comment.create({
-//           content: req.body.content,
-//           post: req.body.post,
-//           user: req.user._id,
-//         });
-  
-//         post.comments.push(comment);
-//         await post.save();
-//         res.redirect("/");
-//       } else {
-//         console.log("Post not found");
-       
-//       }
-//     } catch (err) {
-//       console.log("Error in comment_controller:", err);
-      
-//     }
-//   };
+    if(!comment){
+      console.log('post not found');
+      return res.redirect('back');
+    }
+    if(comment.user.id == req.user.id){
+      await comment.deleteOne().exec();
+      return res.redirect('back');
+    }else{
+      return res.redirect('back');
+    }
+  }catch{
+    console.error('Error in getting post:', err);
+    return res.redirect('back');
+  }
+};

@@ -34,8 +34,9 @@ module.exports.create = async(req, res) => {
       console.log('post not found');
       return res.redirect('back');
     }
-    if(comment.user.id == req.user.id){
+    if(comment.user == req.user.id){
       await comment.deleteOne().exec();
+      // Post.findByIdAndUpdate(postId , {come})
       return res.redirect('back');
     }else{
       return res.redirect('back');

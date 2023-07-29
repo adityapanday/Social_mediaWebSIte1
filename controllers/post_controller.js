@@ -19,25 +19,7 @@ module.exports.create = async (req, res) => {
         return ;
     }
 };
-// module.exports.destroy = async(req , res)=>{
-// try{
-//     let post = await Post.findById(req.param.id);
-//     //we have used .id bcoz it return string which is compareable
-//     //agar ._id user karte to vo string nahi hota or hmm use b nahi kar 
-//     //pate
-//     if(post.user == req.user.id){
-//         post.remove();
-//         comment.deleteMany({post:req.param.id} , (err)=>{
-//             return res.redirect('back');
-//         });
-//     }
-// }catch(err){
-//     console.log(`err in getting post`, err);
-//     return res.redirect('back');
-// }
-   
-        
-// };
+
 module.exports.destroy = async function (req, res) {
     try {
         //exec use kara hai bcoz ya promise return karta h 

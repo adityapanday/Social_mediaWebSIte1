@@ -24,29 +24,50 @@ const Comment = require('../models/comment');
 //   }
 // };
   
+module.exports.home = async function(req, res){
 
-
-
-// const mongoose = require('mongoose');
-
-
-
-
-
-module.exports.home = async (req, res) => {
-    
-    try {
-        const posts = await Post.find().populate('user').populate('comments'); // Use exec() without a callback
-        //   return res.send('user id' , Comment.user._id); 
-        return res.render('home', {
-            title: 'Home',
-            posts: posts,  // Use the lowercase 'posts' variable here, which contains the fetched data
-            comments :Comment
+    try{
+         // populate the user of each post
+        let posts = await Post.find({})
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
         });
-       
-    } catch (err) {
-        console.log('Error finding posts:', err);
-        
+    
+        let users = await User.find({});
+
+        return res.render('home', {
+            title: "Codeial | Home",
+            posts:  posts,
+            all_users: users
+        });
+
+    }catch(err){
+        console.log('Error', err);
+        return;
     }
-};
+   
+}
+
+
+
+// module.exports.home = async (req, res) => {
+    
+//     try {
+//         const posts = await Post.find().populate('user').populate('comments'); // Use exec() without a callback
+//         //   return res.send('user id' , Comment.user._id); 
+//         return res.render('home', {
+//             title: 'Home',
+//             posts: posts,  // Use the lowercase 'posts' variable here, which contains the fetched data
+//             comments :Comment
+//         });
+       
+//     } catch (err) {
+//         console.log('Error finding posts:', err);
+        
+//     }
+// };
 

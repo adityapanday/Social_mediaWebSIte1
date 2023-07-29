@@ -108,7 +108,7 @@
                 <% if (locals.user && locals.user.id == comments.user.id){ %>
                   <small><a href="/comments/destroy/<%=comments.id%>"> <input type="button "value="Delete"> </a> </small>     
                   <%}%>
-                <small><%- comments.user._id %></small>
+                <small><%- comments.user.name %></small>
                 <% } %>
               </ul>
             </div>

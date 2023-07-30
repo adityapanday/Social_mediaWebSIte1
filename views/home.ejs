@@ -1,76 +1,94 @@
 
+<style>
 
- 
-  <style>
-   
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-    #feed-posts {
-      margin-left: 300px;
-      margin-right:300px ;
-      padding: 10px;
-      background-color: #f0f0f0;
-    }
 
-   
-    #new-post-form {
-      margin-bottom: 10px;
-    }
+#user-friends {
+  width: 20%;
+  min-height: 100vh;
+  border: 2px solid black;
+  /* position: relative; */
+  float: left;
+  box-sizing: border-box;
+}
 
-    #posts-list-container {
-      list-style: none;
-      padding: 0;
-    }
+/* Main content area */
+#feed-posts {
+  max-width: 50%;
+  padding: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #402121;
+  box-sizing: border-box;
+}
 
-    li {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: #fff;
-    }
+/* New post form */
+#new-post-form {
+  margin-bottom: 10px;
+}
 
-  
-    .comment-post form {
-      display: flex;
-      margin-top: 5px;
-    }
+/* List of posts */
+#posts-list-container {
+  list-style: none;
+  padding: 0;
+}
 
-    .comment-post input[type="text"] {
-      flex: 1;
-      padding: 5px;
-    }
+li {
+  list-style: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
 
-    .comment-post input[type="submit"] {
-      padding: 5px 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
+/* Comment form */
+.comment-post form {
+  display: flex;
+  margin-top: 5px;
+}
 
-    
-    .post-comments-list {
-      margin-top: 10px;
-      padding-left: 20px;
-    }
+.comment-post input[type="text"] {
+  flex: 1;
+  padding: 5px;
+}
 
-    .post-comments-list p {
-      margin: 5px 0;
-    }
+.comment-post input[type="submit"] {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
 
-     
-    li input[type="button"] {
-      background-color: #dc3545;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
+/* List of post comments */
+.post-comments-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
 
-    
-    small {
-      color: #555;
-    }
-  </style>
+.post-comments-list p {
+  margin: 5px 0;
+}
+
+/* Delete post button */
+li input[type="button"] {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Text styling */
+small {
+  color: #555;
+}
+</style>
 
   <section id="feed-posts">
     <div id="content_post">
@@ -118,5 +136,12 @@
         <% } %>
       </ul>
     </div>
+  </section>
+  <section id="user-friends">
+    <h4>Friends</h4>
+    <%for(u of all_users) {%>
+
+ <p> <a href="/users/profile/<%=u.id%>"><%=u.name%></a></p>
+      <%}%>
   </section>
 

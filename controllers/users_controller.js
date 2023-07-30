@@ -3,11 +3,15 @@ const User = require('../models/user');
 const passport = require('passport');
 
 
-module.exports.profile = function(req, res){
-    return res.render('user_profile', {
-        title: 'User Profile'
-    })
-}
+module.exports.profile =async function(req, res){
+  let user = await User.findById(req.param.id);
+  if(!user){
+    console.log('error in getting user inside user profile');
+  }  return res.render('user_profile', {
+    title: 'User Profile',
+    profile_user:user
+});
+};
 
 
 // render the sign up page

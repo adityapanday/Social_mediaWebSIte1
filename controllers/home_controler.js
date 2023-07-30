@@ -54,20 +54,4 @@ module.exports.home = async function(req, res){
 
 
 
-// module.exports.home = async (req, res) => {
-    
-//     try {
-//         const posts = await Post.find().populate('user').populate('comments'); // Use exec() without a callback
-//         //   return res.send('user id' , Comment.user._id); 
-//         return res.render('home', {
-//             title: 'Home',
-//             posts: posts,  // Use the lowercase 'posts' variable here, which contains the fetched data
-//             comments :Comment
-//         });
-       
-//     } catch (err) {
-//         console.log('Error finding posts:', err);
-        
-//     }
-// };
 
